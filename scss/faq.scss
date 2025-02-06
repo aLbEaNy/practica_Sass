@@ -1,0 +1,133 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+	grid-column: 1/ 13;
+	grid-row: 1;
+	background-image: url(../img/head.jpg);
+	background-size: cover;
+	display: flex;
+	justify-content: baseline;
+	align-items: center;
+	flex-wrap: wrap;
+	padding: 0.5em;
+	border-bottom: solid 2px $colorBordeMorado;
+
+	h2 {
+		color: $colorLogo;
+		font-style: italic;
+		text-align: center;
+		font-size: 1.9em;
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+		padding-left: 2em;
+		margin-right: 0.2em;
+	}
+	.header-end {
+		display: inline;
+		display: flex;
+		align-items: center;
+		margin-left: auto;
+		 
+	}
+	
+	.login {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin-right: 1em;
+		margin-left: auto;
+		a img {
+			width: 40px;
+		}
+
+		&:hover {
+			opacity: 0.8;
+		}
+
+		a {
+			text-decoration: none;
+			color: $colorLogo;
+			font-size: 1.2rem;
+			font-family: sans-serif;
+			font-weight: bold;
+		}
+	}
+}
+.logo {
+	width: 90px;
+	animation: giraLogo 2s;
+	opacity: 1;
+	margin-left: 1em;
+	cursor: pointer;
+	&:hover {
+		opacity: 0.8;
+	}
+}
+
+.faq {
+    grid-column: 1/ 13;
+    background-image: url(../img/fondoFaq2.jpg);
+    background-attachment: fixed;
+    background-position: left;
+    background-size: cover;
+    flex-direction: column;
+    
+    h1 {
+        color: $colorNav;
+        padding: 1.5rem;
+        margin-left: 10rem;
+        font-size: 2.5rem;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    .pregunta {
+        font-style: oblique;
+        font-weight: bold;
+        font-size: larger;
+        padding: 1rem;
+        color: darkblue;
+    }
+
+    .respuesta {
+        margin-bottom: 1rem;
+        color: #000000;
+        font-size: medium;
+    }
+
+    ul {
+        list-style: none;
+        margin-left: 2rem;
+        padding: 0;
+       
+
+        li {
+            margin-bottom: 1rem;
+        }
+    }
+}
+
+@include media(tablet) {
+    .faq {
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .respuesta {
+        max-width: 50%;
+    }
+}
+
+@include media(desktop) {
+    .faq {
+        padding: 4rem;
+    }
+}
+@include footer;

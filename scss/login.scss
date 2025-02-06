@@ -1,0 +1,162 @@
+// login.scss
+@use 'variables' as *;
+
+@use 'mixins' as *;
+
+ body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.login-container {
+    
+    grid-column: 1 / 13;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    background-image: url(../img/loginForm.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+	grid-column: 1/ 13;
+	grid-row: 1;
+	background-image: url(../img/head.jpg);
+	background-size: cover;
+	display: flex;
+	justify-content: baseline;
+	align-items: center;
+	flex-wrap: wrap;
+	padding: 0.5em;
+	border-bottom: solid 2px $colorBordeMorado;
+
+	h2 {
+		color: $colorLogo;
+		font-style: italic;
+		text-align: center;
+		font-size: 1.9em;
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+		padding-left: 2em;
+		margin-right: 0.2em;
+	}
+	.header-end {
+		display: inline;
+		display: flex;
+		align-items: center;
+		margin-left: auto;
+		 
+	}
+	
+	.login {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin-right: 1em;
+		margin-left: auto;
+		a img {
+			width: 40px;
+		}
+
+		&:hover {
+			opacity: 0.8;
+		}
+
+		a {
+			text-decoration: none;
+			color: $colorLogo;
+			font-size: 1.2rem;
+			font-family: sans-serif;
+			font-weight: bold;
+		}
+	}
+}
+.logo {
+	width: 90px;
+	animation: giraLogo 2s;
+	opacity: 1;
+	margin-left: 1em;
+	cursor: pointer;
+	&:hover {
+		opacity: 0.8;
+	}
+}
+
+.login-form {
+    background-color: $colorFondoText;
+    padding: 2rem;
+    border-radius: 10px;
+    border: 2px solid $colorBordeMorado;
+    width: 100%;
+    max-width: 400px;
+
+    h2 {
+        color: $colorLogo;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: $colorNav;
+            &::first-letter{
+                text-transform: uppercase;
+            }
+        }
+
+        input {
+            width: 91%;
+            padding: 0.8rem;
+            border: 2px solid $colorBordeMorado;
+            border-radius: 5px;
+            
+            &:focus {
+                border-color: $colorLogo;
+                outline: none;
+            }
+            &::placeholder{
+                font-family: cursive;
+            }
+        }
+    }
+
+    .login-button {
+        width: 100%;
+        padding: 1rem;
+        background-color: $colorNav;
+        color: $colorNavText;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $colorNavHover;
+            color: $colorLogo;
+        }
+    }
+
+    .form-footer {
+        margin-top: 1.5rem;
+        text-align: center;
+        
+        a {
+            color: $colorLogo;
+            text-decoration: none;
+            margin: 0 1rem;
+            
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }      
+}
+
+@include footer;

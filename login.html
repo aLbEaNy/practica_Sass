@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login AT-Key</title>
+    <link rel="stylesheet" href="./scss/login.scss">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html"><img src="img/logo.png" alt="logo" class="logo" /></a>
+            <h2 class="typewriter">
+                Cerraduras inteligentes y accesorios
+            </h2>
+            <div class="header-end">
+                
+                <div class="login">
+                    <a href="login.html"><img src="img/user.png" alt="login" /></a>
+                    <a href="login.html">Iniciar sesión</a>
+                </div>
+            </div>
+        </header>
+        <main class="login-container">
+            <form class="login-form">
+                <h2>Iniciar Sesión</h2>
+                <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" required placeholder="ejemplo@email.com" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Por favor, introduce una dirección de correo electrónico válida" autocomplete="email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" title="La contraseña debe tener al menos 8 caracteres, una letra mayúscula, una letra minúscula, un número y un caracter especial">
+                </div>
+                <button type="submit" class="login-button">Entrar</button>
+                <div class="form-footer">
+                    <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+                    <a href="formulario.html" class="register">Registrarse</a>
+                </div>
+            </form>
+        </main>
+          <!--FOOTER-->
+   <footer>
+    <section>
+        <article>
+            <h4>Sobre Nosotros</h4>
+            <p>
+                Somos una tienda especializada en cerraduras inteligentes y accesorios de seguridad. Nuestro objetivo es proporcionar productos de alta calidad y soluciones innovadoras para proteger su hogar y su negocio.
+            </p>
+        </article>
+        <article>
+            <h4>Seguridad</h4>
+            <p>
+                Todas nuestras cerraduras cuentan con la última tecnología de seguridad para proteger su hogar.
+            </p>
+            <img width="22px" src="img/cee.png" alt="Icono de seguridad" />
+        </article>
+    </section>
+    <section>
+        <article>
+            <h4>Enlaces Rápidos</h4>
+            <ul class="list-unstyled">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html">Productos</a></li>
+                <li><a href="#">Servicios</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="#">Política de Privacidad</a></li>
+            </ul>
+        </article>
+    </section>
+    <section>
+        <article>
+            <h4>Contacto</h4>
+            <address>
+                <strong>Tienda de Cerraduras Inteligentes</strong><br />
+                123 Calle Principal<br />
+                Ciudad, País<br />
+                Teléfono: (123) 456-7890<br />
+                Email: info@atkeycerraduras.com
+            </address>
+        </article>
+    </section>
+    <section>
+        <article>
+            <h4>Redes Sociales</h4>
+            <a target="_blank" href="https://www.facebook.com"><img width="40px" src="img/facebook.png" alt="Facebook" /></a>
+            <a target="_blank" href="https://www.youtube.com"><img width="40px" src="img/youtube.png" alt="Youtube" /></a>
+            <a target="_blank" href="https://www.instagram.com"><img width="40px" src="img/instagram.png" alt="Instagram" /></a>
+        </article>
+    </section>
+    <section>
+        <article>
+            <h4>Aceptamos los siguientes métodos de pago:</h4>
+            <p>
+                <a target="_blank" href="https://www.visa.es"><img width="50px" src="img/visa.png" alt="Visa" /></a>
+                <a target="_blank" href="https://www.mastercard.es"><img width="50PX" src="img/mastercard.png" alt="mastercad" /></a>
+                <a target="_blank" href="https://www.paypal.es"><img width="50px" src="img/paypal.png" alt="PayPal" /></a>
+            </p>
+        </article>
+    </section>
+    <section>
+        <img src="img/logo.png" alt="logo" width="60px" />
+        <p class="copyright">
+            2024 AT-Key Cerraduras Inteligentes y accesorios. Todos los derechos reservados.
+        </p>
+        <time datetime="2024-01-01">Última actualización: 20 de enero de 2024</time>
+    </section>
+</footer>
+    </div>
+</body>
+</html>

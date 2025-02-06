@@ -1,0 +1,197 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  background-color: $colorFondo;
+  border: solid 2px $colorBordeMorado;
+}
+header {
+	grid-column: 1/ 13;
+	grid-row: 1;
+	background-image: url(../img/head.jpg);
+	background-size: cover;
+	display: flex;
+	justify-content: baseline;
+	align-items: center;
+	flex-wrap: wrap;
+	padding: 0.5em;
+	border-bottom: solid 2px $colorBordeMorado;
+
+	h2 {
+		color: $colorLogo;
+		font-style: italic;
+		text-align: center;
+		font-size: 1.9em;
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+		padding-left: 2em;
+		margin-right: 0.2em;
+	}
+	.header-end {
+		display: inline;
+		display: flex;
+		align-items: center;
+		margin-left: auto;
+		 
+	}
+	
+	.login {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin-right: 1em;
+		margin-left: auto;
+		a img {
+			width: 40px;
+		}
+
+		&:hover {
+			opacity: 0.8;
+		}
+
+		a {
+			text-decoration: none;
+			color: $colorLogo;
+			font-size: 1.2rem;
+			font-family: sans-serif;
+			font-weight: bold;
+		}
+	}
+}
+.logo {
+	width: 90px;
+	animation: giraLogo 2s;
+	opacity: 1;
+	margin-left: 1em;
+	cursor: pointer;
+	&:hover {
+		opacity: 0.8;
+	}
+}
+
+
+.detalle-producto {
+  grid-column: 1 / 13;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background-color: $colorFondo;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 8%;
+  margin: 0.5rem;
+  border-radius: 1rem;
+  background: white;
+
+  img{
+    width: 50%;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .descripcion {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .precio {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .add {
+    cursor: pointer;
+    background-color: $colorBordeMorado;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+
+    &:hover {
+      background-color: $colorNavHover;
+      color:$colorLogo
+    }
+  }
+}
+
+.informacion-adicional {
+  grid-column: 1 / 13;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 2rem;
+  
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  // Agregar estilos para las características y especificaciones técnicas
+  .caracteristicas {
+    margin-bottom: 2rem;
+  }
+
+  .caracteristicas ul {
+    list-style: disc;
+    padding-left: 1rem;
+  }
+
+  .caracteristicas li {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .especificaciones-tecnicas {
+    margin-bottom: 2rem;
+  }
+
+  .especificaciones-tecnicas ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .especificaciones-tecnicas li {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .especificaciones-tecnicas li span {
+    font-weight: bold;
+  }
+}
+@include footer;

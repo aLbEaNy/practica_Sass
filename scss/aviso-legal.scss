@@ -1,0 +1,64 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; // Nueva fuente aplicada a todo el cuerpo
+}
+
+@include header;
+
+.aviso-legal {
+    grid-column: 1 / 13;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding:2rem 4rem 2rem 4rem;
+    @include media(tablet){
+        padding:4rem 8rem 4rem 8rem;
+    }
+    background-color: $colorFondo;
+    color: $colorNav; 
+    line-height: 1.6;
+    font-family: 'Poppins', sans-serif; // Aplicado también a esta sección para asegurar consistencia
+}
+
+.aviso-legal h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: $colorNav;
+}
+
+.aviso-legal h3 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    color: rgb(33, 34, 35);
+}
+
+.aviso-legal p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+.aviso-legal blockquote {
+    font-style: italic;
+    border-left: 4px solid $colorFondo;
+    padding-left: 1rem;
+    margin: 1rem 0;
+    color: darken($colorNav, 20%);
+}
+
+.aviso-legal pre {
+    background-color: darken($colorFondo, 10%);
+    padding: 1rem;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+@include footer;
