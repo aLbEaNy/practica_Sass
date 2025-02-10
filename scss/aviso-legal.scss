@@ -1,64 +1,494 @@
-@use 'variables' as *;
-@use 'mixins' as *;
+@use "variables" as *;
+@use "mixins" as *;
 
-body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif; // Nueva fuente aplicada a todo el cuerpo
+//========================================================================
+/* PANTALLAS DE MOVIL HASTA 656PX DISEÑO MOVIL FIRST */
+//========================================================================
+* {
+	box-sizing: border-box;
+	margin: 0%;
+	scroll-margin-top: 3em; //para salvar el espacio del nav al ir a enlaces
 }
 
-@include header;
+.container {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	background-color: $colorFondo;
+	border: solid 2px $colorBordeMorado;
+}
 
+@include media(tablet) {
+	@keyframes giraLogo {
+		0% {
+			transform: scale(1) rotate(-360deg);
+			opacity: 0.6;
+		}
+		25% {
+			transform: scale(1.3) rotate(360deg);
+			opacity: 0.9;
+			margin: 1.5em;
+		}
+		75% {
+			transform: scale(1.5) rotate(-360deg);
+			opacity: 0.9;
+			margin: 2em;
+		}
+
+		100% {
+			transform: scale(1) rotate(360deg);
+			opacity: 1;
+		}
+	}
+}
+
+.typewriter {
+	font-size: 1.4rem;
+	color: $colorLogo;
+	font-style: italic;
+	text-align: center;
+	margin-left: 1.4rem;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+	animation: typewriter 3s steps(40) forwards,
+		blink-cursor 1s step-end infinite;
+	animation-delay: 0s, 3s; // La animación del parpadeo empieza cuando termina el typewriter
+	overflow: hidden;
+	white-space: nowrap;
+	border-right: 4px solid; // Cursor visible durante la animación
+
+	@include media(tablet) {
+		font-size: 1.6rem;
+		margin-left: 0rem;
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+		padding-left: 2em;
+		margin-right: 0.2em;
+		animation: typewriter 3s steps(40) forwards,
+			blink-cursor 1s step-end infinite;
+		overflow: hidden;
+		white-space: nowrap;
+		border-right: 4px solid; // Cursor visible durante la animación
+	}
+}
+
+@keyframes typewriter {
+	0% {
+		width: 0rem;
+	}
+	100% {
+		width: 22rem;
+		border-right-color: $colorLogo; // Cursor aparece al final
+	}
+}
+@include media(tablet) {
+	@keyframes typewriter {
+		0% {
+			width: 0;
+		}
+		100% {
+			width: 28rem;
+			border-right-color: $colorLogo; // Cursor aparece al final
+		}
+	}
+	@keyframes blink-cursor {
+		0%,
+		100% {
+			border-right-color: $colorLogo;
+		}
+		50% {
+			border-right-color: transparent;
+		}
+	}
+	.typewriter {
+		animation: typewriter 5s steps(40) forwards,
+			blink-cursor 1s step-end infinite;
+		animation-delay: 0s, 5s; // La animación del parpadeo empieza cuando termina el typewriter
+	}
+}
+
+@keyframes blink-cursor {
+	0%,
+	100% {
+		border-right-color: $colorLogo;
+	}
+	50% {
+		border-right-color: transparent;
+	}
+}
+
+header {
+	grid-column: 1/ 13;
+	grid-row: 1;
+	background-image: url(../img/head.jpg);
+	background-size: cover;
+	display: flex;
+
+	align-items: center;
+	flex-wrap: wrap;
+	padding: 0.5em;
+	border-bottom: solid 2px $colorBordeMorado;
+
+	.logo {
+		width: 40px;
+		@include media(tablet) {
+			width: 90px;
+			animation: giraLogo 2s;
+			opacity: 1;
+			margin-left: 1em;
+			cursor: pointer;
+			&:hover {
+				opacity: 0.8;
+			}
+		}
+	}
+	h2 {
+		color: $colorLogo;
+		font-style: italic;
+		text-align: center;
+		font-size: 1.9em;
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+	}
+	.header-end {
+		display: inline;
+		display: flex;
+		align-items: center;
+		margin-left: auto;
+	}
+	.inputBuscar {
+		position: relative;
+		align-items: center;
+		margin-right: 5rem;
+
+		input {
+			margin-right: auto;
+			padding-right: 30px;
+			border: 2px ridge $colorLogo; /* Borde elegante */
+			border-radius: 5px; /* Bordes redondeados */
+			height: 30px;
+			background-color: $colorFondoText;
+			font-size: 0.8rem;
+			@include media(tablet) {
+				height: 40px; /* Altura del input */
+				padding-right: 180px;
+			}
+
+			&:hover {
+				border: 3px solid $colorLogo;
+			}
+			&:focus {
+				border: 3px solid $colorLogo;
+				height: 40px;
+				@include media(tablet) {
+					border: 3px solid $colorLogo;
+					height: 50px;
+				}
+			}
+		}
+	}
+
+	.icon {
+		position: absolute;
+		right: 10px; /* Posición del ícono a la derecha */
+		top: 50%;
+		transform: translateY(-50%); /* Centrar verticalmente */
+		opacity: 0.5;
+	}
+
+	.inputBuscar .icon img {
+		width: 16px; /* Tamaño del ícono */
+		height: 16px; /* Tamaño del ícono */
+		cursor: pointer;
+		&:hover {
+			width: 20px;
+			height: 20px;
+			opacity: 1;
+		}
+	}
+	.login {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin-right: 1em;
+		margin-left: auto;
+		a img {
+			width: 26px;
+			@include media(tablet) {
+				width: 36px;
+			}
+		}
+
+		&:hover {
+			opacity: 0.8;
+		}
+
+		a {
+			text-decoration: none;
+			color: $colorLogo;
+			font-family: sans-serif;
+			font-weight: bold;
+			@include media(tablet) {
+				font-size: 1.2rem;
+			}
+		}
+	}
+}
+
+nav {
+	grid-column: 1 / 13;
+	grid-row: 2;
+	position: sticky;
+	z-index: 1000;
+	top: 0;
+	border-bottom: solid 3px $colorNav;
+	background-color: $colorNav; // Color de fondo del menú Nav
+	padding: 0px;
+	display: flex;
+}
+// Menu hamburguesa
+.menu-icon {
+	margin: 0.4rem;
+	display: block;
+	color: $colorNavText;
+	cursor: pointer;
+	font-size: 24px;
+}
+#menu-toggle {
+	display: none;
+}
+#menu-toggle:not(:checked) ~ .menu-icon + ul {
+	display: none;
+}
+#menu-toggle:checked ~ .menu-icon + ul {
+	display: flex;
+	flex-direction: column;
+}
+
+.ul-main {
+	background: $colorNav;
+	position: absolute;
+	top: 3rem;
+	left: 0rem;
+	padding: 0rem 1.5rem 1rem 1.5rem;
+	align-items: start;
+	justify-content: center;
+	transition: all 0.5s ease;
+	font-size: 1.2rem;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+		Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+		sans-serif;
+	list-style-type: none; // Remove bullet points
+	margin: 0; // Remove margin
+	display: flex; // Display items in a row
+
+	li {
+		// Categorías
+		flex-direction: column;
+		display: flex;
+
+		a {
+			text-decoration: none; // Remove underline
+			color: $colorNavText; // Text color for links
+			padding: 10px; // Padding for links
+
+			&:hover {
+				color: white;
+				font-size: 1.3rem;
+				transition: all 0.3s ease;
+			}
+
+			&:focus-within {
+				// Incluye los <a> que están por debajo en otras listas (click)
+				color: white;
+			}
+		}
+
+		&:focus-within > ul {
+			display: block; // Muestra subcategorías
+			font-size: 0.8rem;
+			padding-left: 1rem;
+			margin: 0%;
+		}
+
+		ul {
+			display: none; // Hide dropdowns by default
+			position: relative; // Position dropdowns absolutely
+
+			top: 0; // Position below the parent
+			left: 0; // Align to the left
+			background-color: $colorNav; // Background color for dropdown
+			z-index: 1000; // Ensure dropdown is above other content
+
+			li {
+				a {
+					&:hover {
+						font-size: 1rem;
+					}
+				}
+			}
+		}
+	}
+}
+.inicioCarro {
+	display: flex;
+	margin-left: auto;
+	margin-right: 1.5rem;
+	gap: 2rem;
+
+	.carroIcon {
+		color: $colorNavText;
+		text-decoration: none;
+		font-size: 1.2rem;
+		display: flex;
+		align-items: center;
+		align-self: center;
+		gap: 0.5rem;
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+}
+main {
+	grid-column: 1/ 13;
+	grid-row: 3;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	margin-top: 2rem;
+	margin-#menu-toggle:not(:checked) ~ .menu-icon + ul {
+    display: none;
+}#menu-toggle:not(:checked) ~ .menu-icon + ul {
+    display: none;
+}bottom: 2rem;
+	@include media(tablet) {
+		grid-column: 2/ 12;
+		grid-template-columns: repeat(3, 1fr);
+	}
+	
+}
 .aviso-legal {
-    grid-column: 1 / 13;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    padding:2rem 4rem 2rem 4rem;
-    @include media(tablet){
-        padding:4rem 8rem 4rem 8rem;
-    }
-    background-color: $colorFondo;
-    color: $colorNav; 
-    line-height: 1.6;
-    font-family: 'Poppins', sans-serif; // Aplicado también a esta sección para asegurar consistencia
+	grid-column: 1 / 13;
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	padding: 2rem 4rem 2rem 4rem;
+	@include media(tablet) {
+		padding: 4rem 8rem 4rem 8rem;
+	}
+	background-color: $colorFondo;
+	color: $colorNav;
+	line-height: 1.6;
+	font-family: "Poppins", sans-serif; // Aplicado también a esta sección para asegurar consistencia
+
+	h1 {
+		font-size: 2.2rem;
+		font-weight: bold;
+		margin-bottom: 1.5rem;
+		color: $colorNav;
+	}
+
+	h3 {
+		font-size: 1.8rem;
+		font-weight: bold;
+		margin-top: 1.5rem;
+		margin-bottom: 1rem;
+		color: rgb(33, 34, 35);
+	}
+
+	p {
+		font-size: 1.2rem;
+		margin-bottom: 1rem;
+		text-align: justify;
+	}
+
+	blockquote {
+		font-style: italic;
+		border-left: 4px solid $colorFondo;
+		padding-left: 1rem;
+		margin: 1rem 0;
+		color: darken($colorNav, 20%);
+	}
+
+	pre {
+		background-color: darken($colorFondo, 10%);
+		padding: 1rem;
+		border-radius: 5px;
+		overflow-x: auto;
+	}
 }
 
-.aviso-legal h2 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 1.5rem;
-    color: $colorNav;
-}
+@media (min-width: 1024px) {
+	.menu-icon {
+		display: none;
+	}
+	#menu-toggle:checked ~ .menu-icon + ul,
+	#menu-toggle:not(:checked) ~ .menu-icon + ul {
+		display: flex;
+		flex-direction: row;
+	}
+	nav {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0.8rem 2rem;
+		align-items: end;
 
-.aviso-legal h3 {
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-top: 1.5rem;
-    margin-bottom: 1rem;
-    color: rgb(33, 34, 35);
-}
+		.ul-main {
+			background-color: none;
+			display: flex;
+			flex-direction: column;
+			top: 0rem;
+			left: 4rem;
+			margin-top: 0.5rem;
+			padding: 0rem;
 
-.aviso-legal p {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    text-align: justify;
-}
+			li {
+				// Categorías
+				position: relative;
 
-.aviso-legal blockquote {
-    font-style: italic;
-    border-left: 4px solid $colorFondo;
-    padding-left: 1rem;
-    margin: 1rem 0;
-    color: darken($colorNav, 20%);
-}
+				padding: 0.3rem 5rem 0.6rem 0.2rem;
+				cursor: pointer;
 
-.aviso-legal pre {
-    background-color: darken($colorFondo, 10%);
-    padding: 1rem;
-    border-radius: 5px;
-    overflow-x: auto;
+				a {
+					padding: 0;
+
+					&:hover {
+						padding: 0;
+					}
+				}
+
+				&:hover > ul {
+					display: block; // Muestra subcategorías
+				}
+
+				ul {
+					// Subcategorías
+					position: absolute;
+					top: 2.6rem;
+					padding: 0.5rem;
+					margin: 0;
+					display: none;
+					border-radius: 0px 0px 5px 5px;
+
+					li {
+						border-radius: 5px;
+						padding: 0.5rem;
+						cursor: pointer;
+						&:hover > a {
+							font-size: 1.3rem;
+							color: white;
+						}
+
+						a {
+							white-space: nowrap; // Prevent line break
+
+							font-size: 1.2rem;
+							margin: 1rem;
+						}
+					}
+				}
+			}
+		}
+	}
+	
 }
 
 @include footer;

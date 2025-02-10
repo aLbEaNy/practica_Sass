@@ -1,5 +1,6 @@
 @use "variables" as *;
 @use "mixins" as *;
+$fontFamily: "Roboto", sans-serif;
 
 //========================================================================
 /* PANTALLAS DE MOVIL HASTA 656PX DISEÑO MOVIL FIRST */
@@ -346,16 +347,15 @@ nav {
 		}
 	}
 }
-.separador {
-	display: none;
-}
-.carrusel {
-	display: none;
-}
+
 main {
 	grid-column: 1/ 13;
 	grid-row: 3;
 	display: grid;
+	display:flex;
+	padding: 3em;
+	gap: 2em;
+	flex-direction: column;
 	grid-template-columns: repeat(2, 1fr);
 	margin-top: 2rem;
 	margin-#menu-toggle:not(:checked) ~ .menu-icon + ul {
@@ -366,7 +366,123 @@ main {
 	@include media(tablet) {
 		grid-column: 2/ 12;
 		grid-template-columns: repeat(3, 1fr);
+	}	
+	h1{
+		font-size: 2.2rem;
+		font-family: $fontFamily;
+		color: $colorNav
 	}
-	
+	.intro-text{
+		font-size: 1.2rem;
+		font-family: $fontFamily;
+		color: $colorNav
+	}
+	.video-container{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	iframe{
+		justify-content: center;
+		width: 60vw;
+		height: 60vh;
+		
+	}
+	section{
+		font-family: $fontFamily;
+		
+		color: $colorNav;
+		flex-direction: column;
+		justify-content: start;
+		align-items: start;
+		padding: 2rem;
+		li{
+			font-size: 1.2rem;
+			margin: 1rem;
+			padding: auto;
+		}
+	}
+
+}
+
+
+
+@media (min-width: 1024px) {
+
+
+	.menu-icon {
+		display: none;
+	}
+	#menu-toggle:checked ~ .menu-icon + ul,
+	#menu-toggle:not(:checked) ~ .menu-icon + ul {
+		display: flex;
+		flex-direction: row;
+	}
+	nav {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0.8rem 2rem;
+		align-items: end;
+
+		.ul-main {
+			background-color: none;
+			display: flex;
+			flex-direction: column;
+			top: 0rem;
+			left: 4rem;
+			margin-top: 0.5rem;
+			padding: 0rem;
+
+			li {
+				// Categorías
+				position: relative;
+
+				padding: 0.3rem 5rem 0.6rem 0.2rem;
+				cursor: pointer;
+
+				a {
+					padding: 0;
+
+					&:hover {
+						padding: 0;
+					}
+				}
+
+				&:hover > ul {
+					display: block; // Muestra subcategorías
+				}
+
+				ul {
+					// Subcategorías
+					position: absolute;
+					top: 2.6rem;
+					padding: 0.5rem;
+					margin: 0;
+					display: none;
+					border-radius: 0px 0px 5px 5px;
+
+					li {
+						border-radius: 5px;
+						padding: 0.5rem;
+						cursor: pointer;
+						&:hover > a {
+							font-size: 1.3rem;
+							color: white;
+						}
+
+						a {
+							white-space: nowrap; // Prevent line break
+
+							font-size: 1.2rem;
+							margin: 1rem;
+						}
+					}
+				}
+			}
+		}
+	}
 }
 @include footer;
