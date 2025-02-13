@@ -19,16 +19,59 @@
     <header>
       <a href="index.html"><img src="img/logo.png" alt="logo" class="logo" /></a>
       <h2 class="typewriter">
-          Cerraduras inteligentes y accesorios
+        Cerraduras inteligentes y accesorios
       </h2>
       <div class="header-end">
-          
-          <div class="login">
-              <a href="login.html"><img src="img/user.png" alt="login" /></a>
-              <a href="login.html">Iniciar sesión</a>
-          </div>
+        <div>
+          <form action="buscar.html" method="get" class="buscador">
+            <div class="inputBuscar">
+              <input type="text" name="q" placeholder="Buscar ..." />
+              <span class="icon"><img src="./img/lupa.svg" alt="Buscar" /></span>
+            </div>
+          </form>
+
+        </div>
+        <div class="login">
+          <a href="login.html"><img src="img/user.png" alt="login" /></a>
+          <a href="login.html">Iniciar sesión</a>
+        </div>
       </div>
-  </header>
+    </header>
+  <nav>
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">&#9776;</label>
+    <ul class="ul-main">
+      <li><a href="#">Productos</a>
+        <ul>
+          <li><a href="productoM.html">Cerraduras motorizadas</a></li>
+          <li><a href="productoH.html">Cerraduras con huella Digital</a></li>
+          <li><a href="productoA.html">Accesorios</a></li>
+        </ul>
+      </li>
+      
+      <li><a href="#">Servicios</a>
+        <ul>
+          <li><a href="instalacion.html">Instalación de Cerraduras</a></li>
+          <li><a href="instalacion.html">Mantenimiento de Cerraduras</a></li>
+          <li><a href="instalacion.html">Reparación de Cerraduras</a></li>
+          
+        </ul>
+      </li>
+      <li><a href="#">Ayuda</a>
+        <ul>
+          <li><a href="faq.html">Preguntas Frecuentes</a></li>
+          <li><a href="avisoLegal.html">Aviso Legal</a></li>
+        </ul>
+      </li>
+    </ul>
+    
+<p class="inicioCarro">
+<a href="index.html" class="carroIcon"><img src="img/home.png" alt="carrito" width="24px" />Inicio</a>
+
+<a href="carro.html" class="carroIcon"><img src="img/carrito.png" alt="carrito" width="20px" />Carro</a>
+</p>
+  </nav>
+
     <main class="cart-container">
       <div class="cart-items">
         <h2>Carrito de Compra</h2>

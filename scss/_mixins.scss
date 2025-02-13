@@ -82,6 +82,29 @@
   }
 }
 
+@mixin flex-center($direction: row, $justify: center, $align: center) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: $justify;
+	align-items: $align;
+  }
+  
+  @mixin responsive-font($size-mobile, $size-tablet, $size-desktop) {
+	font-size: $size-mobile;
+  
+	@include media(tablet) {
+	  font-size: $size-tablet;
+	}
+  
+	@include media(desktop) {
+	  font-size: $size-desktop;
+	}
+  }
+  
+  @mixin transition($property, $duration: 0.3s, $timing: ease) {
+	transition: #{$property} #{$duration} #{$timing};
+  }
+
 @mixin footer {
 	footer {
 		grid-column: 1/13;
