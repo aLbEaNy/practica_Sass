@@ -8,6 +8,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+nav {
+	@include nav;
+}
 
 .login-container {
     
@@ -22,68 +25,8 @@
 }
 
 header {
-	grid-column: 1/ 13;
-	grid-row: 1;
-	background-image: url(../img/head.jpg);
-	background-size: cover;
-	display: flex;
-	justify-content: baseline;
-	align-items: center;
-	flex-wrap: wrap;
-	padding: 0.5em;
-	border-bottom: solid 2px $colorBordeMorado;
-
-	h2 {
-		color: $colorLogo;
-		font-style: italic;
-		text-align: center;
-		font-size: 1.9em;
-		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-		padding-left: 2em;
-		margin-right: 0.2em;
-	}
-	.header-end {
-		display: inline;
-		display: flex;
-		align-items: center;
-		margin-left: auto;
-		 
-	}
-	
-	.login {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		margin-right: 1em;
-		margin-left: auto;
-		a img {
-			width: 40px;
-		}
-
-		&:hover {
-			opacity: 0.8;
-		}
-
-		a {
-			text-decoration: none;
-			color: $colorLogo;
-			font-size: 1.2rem;
-			font-family: sans-serif;
-			font-weight: bold;
-		}
-	}
-}
-.logo {
-	width: 90px;
-	animation: giraLogo 2s;
-	opacity: 1;
-	margin-left: 1em;
-	cursor: pointer;
-	&:hover {
-		opacity: 0.8;
-	}
-}
+	@include header;
+  }
 
 .login-form {
     background-color: $colorFondoText;
