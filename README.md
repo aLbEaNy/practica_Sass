@@ -6,7 +6,7 @@ Este proyecto es una tienda en línea estática desarrollada como parte del mód
 ## Tecnologías utilizadas
 - HTML5
 - CSS3 / Sass
-- JavaScript (para efectos mínimos si es necesario)
+- JavaScript (para efectos mínimos)
 
 ## Estructura del Proyecto
 El proyecto está organizado en las siguientes carpetas y archivos principales:
@@ -30,7 +30,11 @@ El proyecto está organizado en las siguientes carpetas y archivos principales:
 - `package.json` y `package-lock.json` - Archivos de gestión de dependencias si se usa npm.
 
 ## Capturas de Pantalla
-(Incluir aquí imágenes de la interfaz del sitio, como la página principal y secciones clave).
+![screencapture-localhost-5173-2025-02-14-00_38_28](https://github.com/user-attachments/assets/442ded18-d113-4496-b1cf-858bfd3cdda6)
+![screencapture-localhost-5173-login-html-2025-02-14-00_42_32](https://github.com/user-attachments/assets/f6ee72f9-4d98-44c7-986c-39ab0b918145)
+![screencapture-localhost-5173-carro-html-2025-02-14-01_02_19](https://github.com/user-attachments/assets/d9b0edca-984b-4cf9-b378-8cd690df4a87)![screencapture-localhost-5173-productoA-html-2025-02-14-01_05_45](https://github.com/user-attachments/assets/3c370f7e-bf64-4c20-a512-cddd9d9b30db)
+
+
 
 ## Instrucciones de Instalación
 Si deseas clonar este proyecto y trabajar con Sass, sigue estos pasos:
@@ -38,7 +42,7 @@ Si deseas clonar este proyecto y trabajar con Sass, sigue estos pasos:
 ```sh
 git clone https://github.com/aLbEaNy/practica_sass.git
 cd practica_sass
-npm install  # Instalación de dependencias (si se usa npm)
+npm install  # Instalación de dependencias
 ```
 
 Para compilar Sass a CSS, usa el siguiente comando:
